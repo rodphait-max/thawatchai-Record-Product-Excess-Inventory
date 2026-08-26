@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>�ѹ�֡��¡���Թ����Թ Mainwarehouse SiS</title>
+    <title>ºÑ¹·Ö¡ÃÒÂ¡ÒÃÊÔ¹¤éÒà¡Ô¹ Mainwarehouse SiS</title>
     <!-- FontAwesome & Google Fonts -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -89,13 +89,13 @@
     <div id="loginScreen" class="login-container">
         <div class="login-card">
             <h2><i class="fa-solid fa-boxes-packing"></i> SiS Mainwarehouse</h2>
-            <p>�ѹ�֡��¡���Թ����Թ Mainwarehouse SiS</p>
+            <p>ºÑ¹·Ö¡ÃÒÂ¡ÒÃÊÔ¹¤éÒà¡Ô¹ Mainwarehouse SiS</p>
             <form id="loginForm" onsubmit="handleLogin(event)">
                 <div class="form-group">
-                    <label>���ʾ�ѡ�ҹ (Employee ID)</label>
-                    <input type="text" id="empId" class="form-control" placeholder="�к����ʾ�ѡ�ҹ" required autofocus>
+                    <label>ÃËÑÊ¾¹Ñ¡§Ò¹ (Employee ID)</label>
+                    <input type="text" id="empId" class="form-control" placeholder="ÃÐºØÃËÑÊ¾¹Ñ¡§Ò¹" required autofocus>
                 </div>
-                <button type="submit" class="btn btn-primary"><i class="fa-solid fa-right-to-bracket"></i> �������к�</button>
+                <button type="submit" class="btn btn-primary"><i class="fa-solid fa-right-to-bracket"></i> à¢éÒÊÙèÃÐºº</button>
             </form>
         </div>
     </div>
@@ -105,11 +105,11 @@
         <nav class="navbar">
             <div class="navbar-brand">
                 <i class="fa-solid fa-warehouse"></i>
-                <span>�к��ѹ�֡�Թ����Թ Mainwarehouse SiS</span>
+                <span>ÃÐºººÑ¹·Ö¡ÊÔ¹¤éÒà¡Ô¹ Mainwarehouse SiS</span>
             </div>
             <div class="user-info">
-                <span><i class="fa-regular fa-user"></i> �����ҹ: <strong id="currentUserName">-</strong></span>
-                <button class="btn-logout" onclick="logout()"><i class="fa-solid fa-power-off"></i> �͡�ҡ�к�</button>
+                <span><i class="fa-regular fa-user"></i> ¼Ùéãªé§Ò¹: <strong id="currentUserName">-</strong></span>
+                <button class="btn-logout" onclick="logout()"><i class="fa-solid fa-power-off"></i> ÍÍ¡¨Ò¡ÃÐºº</button>
             </div>
         </nav>
 
@@ -122,40 +122,40 @@
 
             <!-- Tabs -->
             <div class="tabs">
-                <button class="tab-btn active" onclick="switchTab('inTab', event)"><i class="fa-solid fa-arrow-down-to-bracket"></i> �ѹ�֡�Ѻ�Թ����Թ��� Bin</button>
-                <button class="tab-btn" onclick="switchTab('outTab', event)"><i class="fa-solid fa-arrow-up-from-bracket"></i> �ԡ�ͧ�Թ����� Bin (�Ѵ�Թ����͡)</button>
-                <button class="tab-btn" onclick="switchTab('stockTab', event)"><i class="fa-solid fa-chart-pie"></i> Dashboard �Թ����Թ�������</button>
-                <button class="tab-btn" onclick="switchTab('historyTab', event)"><i class="fa-solid fa-clock-rotate-left"></i> History ����ѵ���͹��ѧ</button>
+                <button class="tab-btn active" onclick="switchTab('inTab', event)"><i class="fa-solid fa-arrow-down-to-bracket"></i> ºÑ¹·Ö¡ÃÑºÊÔ¹¤éÒà¡Ô¹à¢éÒ Bin</button>
+                <button class="tab-btn" onclick="switchTab('outTab', event)"><i class="fa-solid fa-arrow-up-from-bracket"></i> àºÔ¡¢Í§à¡Ô¹à¡çºà¢éÒ Bin (µÑ´ÊÔ¹¤éÒÍÍ¡)</button>
+                <button class="tab-btn" onclick="switchTab('stockTab', event)"><i class="fa-solid fa-chart-pie"></i> Dashboard ÊÔ¹¤éÒà¡Ô¹¤§àËÅ×Í</button>
+                <button class="tab-btn" onclick="switchTab('historyTab', event)"><i class="fa-solid fa-clock-rotate-left"></i> History »ÃÐÇÑµÔÂéÍ¹ËÅÑ§</button>
             </div>
 
-            <!-- TAB 1: �ѹ�֡�Ѻ�Թ����Թ��� Bin -->
+            <!-- TAB 1: ºÑ¹·Ö¡ÃÑºÊÔ¹¤éÒà¡Ô¹à¢éÒ Bin -->
             <div id="inTab" class="tab-content">
                 <div class="card">
                     <div class="scan-box-compact">
                         <label style="font-weight: 600; display: block; margin-bottom: 0.5rem; font-size: 0.9rem;">
-                            <i class="fa-solid fa-barcode"></i> �᡹������ ���� �������� (Article / SKU / GTIN):
+                            <i class="fa-solid fa-barcode"></i> Êá¡¹ºÒÃìâ¤é´ ËÃ×Í ¾ÔÁ¾ì¤é¹ËÒ (Article / SKU / GTIN):
                         </label>
                         <div style="display: flex; gap: 0.5rem;">
-                            <input type="text" id="scanInInput" class="form-control" placeholder="�����/�ԧ���������ǡ� Enter..." onkeypress="handleScan(event, 'IN')">
-                            <button class="btn btn-primary" style="width: auto; padding: 0.6rem 1.2rem;" onclick="searchBarcode('IN')"><i class="fa-solid fa-magnifying-glass"></i> ����</button>
+                            <input type="text" id="scanInInput" class="form-control" placeholder="¾ÔÁ¾ì/ÂÔ§ºÒÃìâ¤é´áÅéÇ¡´ Enter..." onkeypress="handleScan(event, 'IN')">
+                            <button class="btn btn-primary" style="width: auto; padding: 0.6rem 1.2rem;" onclick="searchBarcode('IN')"><i class="fa-solid fa-magnifying-glass"></i> ¤é¹ËÒ</button>
                         </div>
                     </div>
 
                     <div id="manualAlertIN" class="alert-box hidden">
-                        <i class="fa-solid fa-triangle-exclamation"></i> ��辺������� Data Article ALL SAP � �ô��͡������Ẻ Manual
+                        <i class="fa-solid fa-triangle-exclamation"></i> äÁè¾º¢éÍÁÙÅã¹ Data Article ALL SAP  â»Ã´¡ÃÍ¡¢éÍÁÙÅáºº Manual
                     </div>
 
-                    <h3 style="margin-bottom: 1rem; font-size: 1.1rem; color: var(--primary);">��¡���Թ��ҷ��кѹ�֡</h3>
+                    <h3 style="margin-bottom: 1rem; font-size: 1.1rem; color: var(--primary);">ÃÒÂ¡ÒÃÊÔ¹¤éÒ·Õè¨ÐºÑ¹·Ö¡</h3>
                     <div class="table-responsive">
                         <table id="tableIn">
                             <thead>
                                 <tr>
                                     <th>Article</th>
-                                    <th>��������´�Թ���</th>
+                                    <th>ÃÒÂÅÐàÍÕÂ´ÊÔ¹¤éÒ</th>
                                     <th>SKU / Gtin</th>
-                                    <th style="width: 120px;">�ӹǹ</th>
-                                    <th>������Թ���Թ</th>
-                                    <th style="width: 60px;">ź</th>
+                                    <th style="width: 120px;">¨Ó¹Ç¹</th>
+                                    <th>¾ºÇèÒà¡Ô¹·ÕèºÔ¹</th>
+                                    <th style="width: 60px;">Åº</th>
                                 </tr>
                             </thead>
                             <tbody id="tbodyIn"></tbody>
@@ -163,40 +163,40 @@
                     </div>
 
                     <div style="margin-top: 1rem; display: flex; justify-content: space-between;">
-                        <button class="btn btn-secondary" onclick="addBlankRow('IN')"><i class="fa-solid fa-plus"></i> ������¡���Թ��� (Manual)</button>
-                        <button class="btn btn-success" onclick="saveData('IN')"><i class="fa-solid fa-floppy-disk"></i> �ѹ�֡��¡�÷�����</button>
+                        <button class="btn btn-secondary" onclick="addBlankRow('IN')"><i class="fa-solid fa-plus"></i> à¾ÔèÁÃÒÂ¡ÒÃÊÔ¹¤éÒ (Manual)</button>
+                        <button class="btn btn-success" onclick="saveData('IN')"><i class="fa-solid fa-floppy-disk"></i> ºÑ¹·Ö¡ÃÒÂ¡ÒÃ·Ñé§ËÁ´</button>
                     </div>
                 </div>
             </div>
 
-            <!-- TAB 2: �ԡ�ͧ�Թ����� Bin -->
+            <!-- TAB 2: àºÔ¡¢Í§à¡Ô¹à¡çºà¢éÒ Bin -->
             <div id="outTab" class="tab-content hidden">
                 <div class="card">
                     <div class="scan-box-compact scan-box-compact-out">
                         <label style="font-weight: 600; display: block; margin-bottom: 0.5rem; font-size: 0.9rem;">
-                            <i class="fa-solid fa-barcode"></i> �᡹������ / ����������ԡ�͡ (Article / SKU / GTIN):
+                            <i class="fa-solid fa-barcode"></i> Êá¡¹ºÒÃìâ¤é´ / ¾ÔÁ¾ìà¾×èÍàºÔ¡ÍÍ¡ (Article / SKU / GTIN):
                         </label>
                         <div style="display: flex; gap: 0.5rem;">
-                            <input type="text" id="scanOutInput" class="form-control" placeholder="�����/�ԧ���������ǡ� Enter..." onkeypress="handleScan(event, 'OUT')">
-                            <button class="btn btn-primary" style="width: auto; background-color: #ea580c; padding: 0.6rem 1.2rem;" onclick="searchBarcode('OUT')"><i class="fa-solid fa-magnifying-glass"></i> ����</button>
+                            <input type="text" id="scanOutInput" class="form-control" placeholder="¾ÔÁ¾ì/ÂÔ§ºÒÃìâ¤é´áÅéÇ¡´ Enter..." onkeypress="handleScan(event, 'OUT')">
+                            <button class="btn btn-primary" style="width: auto; background-color: #ea580c; padding: 0.6rem 1.2rem;" onclick="searchBarcode('OUT')"><i class="fa-solid fa-magnifying-glass"></i> ¤é¹ËÒ</button>
                         </div>
                     </div>
 
                     <div id="manualAlertOUT" class="alert-box hidden">
-                        <i class="fa-solid fa-triangle-exclamation"></i> ��辺������� Data Article ALL SAP � �ô��͡������Ẻ Manual
+                        <i class="fa-solid fa-triangle-exclamation"></i> äÁè¾º¢éÍÁÙÅã¹ Data Article ALL SAP  â»Ã´¡ÃÍ¡¢éÍÁÙÅáºº Manual
                     </div>
 
-                    <h3 style="margin-bottom: 1rem; font-size: 1.1rem; color: #c2410c;">��¡���Թ��ҷ����ԡ�Ѵ�͡</h3>
+                    <h3 style="margin-bottom: 1rem; font-size: 1.1rem; color: #c2410c;">ÃÒÂ¡ÒÃÊÔ¹¤éÒ·Õè¨ÐàºÔ¡µÑ´ÍÍ¡</h3>
                     <div class="table-responsive">
                         <table id="tableOut">
                             <thead>
                                 <tr>
                                     <th>Article</th>
-                                    <th>��������´�Թ���</th>
+                                    <th>ÃÒÂÅÐàÍÕÂ´ÊÔ¹¤éÒ</th>
                                     <th>SKU / Gtin</th>
-                                    <th style="width: 120px;">�ӹǹ�ԡ</th>
-                                    <th>����ԡ / �����˵�</th>
-                                    <th style="width: 60px;">ź</th>
+                                    <th style="width: 120px;">¨Ó¹Ç¹àºÔ¡</th>
+                                    <th>¼ÙéàºÔ¡ / ËÁÒÂàËµØ</th>
+                                    <th style="width: 60px;">Åº</th>
                                 </tr>
                             </thead>
                             <tbody id="tbodyOut"></tbody>
@@ -204,23 +204,23 @@
                     </div>
 
                     <div style="margin-top: 1rem; display: flex; justify-content: space-between;">
-                        <button class="btn btn-secondary" onclick="addBlankRow('OUT')"><i class="fa-solid fa-plus"></i> ������¡���ԡ (Manual)</button>
-                        <button class="btn btn-success" style="background-color: #ea580c;" onclick="saveData('OUT')"><i class="fa-solid fa-trash-can"></i> �ѹ�֡�Ѵ�Թ����͡</button>
+                        <button class="btn btn-secondary" onclick="addBlankRow('OUT')"><i class="fa-solid fa-plus"></i> à¾ÔèÁÃÒÂ¡ÒÃàºÔ¡ (Manual)</button>
+                        <button class="btn btn-success" style="background-color: #ea580c;" onclick="saveData('OUT')"><i class="fa-solid fa-trash-can"></i> ºÑ¹·Ö¡µÑ´ÊÔ¹¤éÒÍÍ¡</button>
                     </div>
                 </div>
             </div>
 
-            <!-- TAB 3: Dashboard �Թ����Թ������� -->
+            <!-- TAB 3: Dashboard ÊÔ¹¤éÒà¡Ô¹¤§àËÅ×Í -->
             <div id="stockTab" class="tab-content hidden">
                 <div class="card">
                     <div class="card-header-flex">
                         <h3 style="font-size: 1.1rem; color: var(--primary);">
-                            <i class="fa-solid fa-boxes-stacked"></i> Dashboard ��¡���Թ����Թ������ͷ�����
+                            <i class="fa-solid fa-boxes-stacked"></i> Dashboard ÃÒÂ¡ÒÃÊÔ¹¤éÒà¡Ô¹¤§àËÅ×Í·Ñé§ËÁ´
                         </h3>
                         <div style="display: flex; gap: 0.75rem; align-items: center;">
                             <div class="search-container">
                                 <i class="fa-solid fa-magnifying-glass"></i>
-                                <input type="text" id="searchStockInput" class="form-control" placeholder="���� Article / ��������´..." onkeyup="filterStockTable()">
+                                <input type="text" id="searchStockInput" class="form-control" placeholder="¤é¹ËÒ Article / ÃÒÂÅÐàÍÕÂ´..." onkeyup="filterStockTable()">
                             </div>
                             <button class="btn btn-excel" onclick="exportToExcel('stockTable', 'Dashboard_Stock_Over.xlsx')">
                                 <i class="fa-solid fa-file-excel"></i> Export to Excel
@@ -234,10 +234,10 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Article</th>
-                                    <th>��������´�Թ���</th>
+                                    <th>ÃÒÂÅÐàÍÕÂ´ÊÔ¹¤éÒ</th>
                                     <th>SKU / Gtin</th>
-                                    <th>�ӹǹ�������</th>
-                                    <th>������Թ���Թ (����ش)</th>
+                                    <th>¨Ó¹Ç¹¤§àËÅ×Í</th>
+                                    <th>¾ºÇèÒà¡Ô¹·ÕèºÔ¹ (ÅèÒÊØ´)</th>
                                 </tr>
                             </thead>
                             <tbody id="tbodyStock"></tbody>
@@ -246,17 +246,17 @@
                 </div>
             </div>
 
-            <!-- TAB 4: History ����ѵ���͹��ѧ -->
+            <!-- TAB 4: History »ÃÐÇÑµÔÂéÍ¹ËÅÑ§ -->
             <div id="historyTab" class="tab-content hidden">
                 <div class="card">
                     <div class="card-header-flex">
                         <h3 style="font-size: 1.1rem; color: var(--primary);">
-                            <i class="fa-solid fa-history"></i> ����ѵԡ�úѹ�֡��еѴ�ԡ 
+                            <i class="fa-solid fa-history"></i> »ÃÐÇÑµÔ¡ÒÃºÑ¹·Ö¡áÅÐµÑ´àºÔ¡ 
                         </h3>
                         <div style="display: flex; gap: 0.75rem; align-items: center;">
                             <div class="search-container">
                                 <i class="fa-solid fa-magnifying-glass"></i>
-                                <input type="text" id="searchHistoryInput" class="form-control" placeholder="���һ���ѵ�..." onkeyup="filterHistoryTable()">
+                                <input type="text" id="searchHistoryInput" class="form-control" placeholder="¤é¹ËÒ»ÃÐÇÑµÔ..." onkeyup="filterHistoryTable()">
                             </div>
                             <button class="btn btn-excel" onclick="exportToExcel('historyTable', 'History_Over_Stock.xlsx')">
                                 <i class="fa-solid fa-file-excel"></i> Export to Excel
@@ -268,15 +268,15 @@
                         <table class="table-striped" id="historyTable">
                             <thead>
                                 <tr>
-                                    <th>������</th>
-                                    <th>�ѹ���</th>
-                                    <th>����</th>
+                                    <th>»ÃÐàÀ·</th>
+                                    <th>ÇÑ¹·Õè</th>
+                                    <th>àÇÅÒ</th>
                                     <th>Article</th>
-                                    <th>��������´�Թ���</th>
+                                    <th>ÃÒÂÅÐàÍÕÂ´ÊÔ¹¤éÒ</th>
                                     <th>SKU / Gtin</th>
-                                    <th>�ӹǹ</th>
-                                    <th>�Թ / ����ԡ</th>
-                                    <th>���ѹ�֡</th>
+                                    <th>¨Ó¹Ç¹</th>
+                                    <th>ºÔ¹ / ¼ÙéàºÔ¡</th>
+                                    <th>¼ÙéºÑ¹·Ö¡</th>
                                 </tr>
                             </thead>
                             <tbody id="tbodyHistory"></tbody>
@@ -289,7 +289,7 @@
     </div>
 
     <script>
-        // *** �� URL Web App �����ҡ Step 1 ���ҧ᷹����÷Ѵ��� ***
+        // *** ¹Ó URL Web App ·Õèä´é¨Ò¡ Step 1 ÁÒÇÒ§á·¹·ÕèºÃÃ·Ñ´¹Õé ***
         const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzOasmL_iP1wvksESYOM_ZdEEKiGbifKK15LMvoE2_4X6xaOYug9zNNcsT0MuIo2E0g/exec";
 
         let currentUser = "";
@@ -304,7 +304,7 @@
                 return await response.json();
             } catch (err) {
                 console.error("API Call Error:", err);
-                alert("�������ö�������͡Ѻ�к��� �ô��Ǩ�ͺ�Թ������");
+                alert("äÁèÊÒÁÒÃ¶àª×èÍÁµèÍ¡ÑºÃÐººä´é â»Ã´µÃÇ¨ÊÍºÍÔ¹à·ÍÃìà¹çµ");
                 return null;
             }
         }
@@ -312,7 +312,7 @@
         async function handleLogin(e) {
             e.preventDefault();
             const empId = document.getElementById('empId').value.trim();
-            if (!empId) return alert('��سҡ�͡���ʾ�ѡ�ҹ');
+            if (!empId) return alert('¡ÃØ³Ò¡ÃÍ¡ÃËÑÊ¾¹Ñ¡§Ò¹');
 
             const res = await callBackend('checkLogin', { empId });
             if (res && res.success) {
@@ -324,7 +324,7 @@
                 addBlankRow('IN');
                 addBlankRow('OUT');
             } else {
-                alert(res ? res.message : '��辺���ʾ�ѡ�ҹ��к�');
+                alert(res ? res.message : 'äÁè¾ºÃËÑÊ¾¹Ñ¡§Ò¹ã¹ÃÐºº');
             }
         }
 
@@ -377,7 +377,7 @@
             const isOut = type === 'OUT';
             const userNote = isOut ? (note || currentUser || '') : (note || '');
             const readonlyAttr = isOut ? 'readonly style="background-color: #f1f5f9; cursor: not-allowed;"' : '';
-            const placeholderText = type === 'IN' ? '�� �Թ 10023' : '����ԡ';
+            const placeholderText = type === 'IN' ? 'àªè¹ ºÔ¹ 10023' : '¼ÙéàºÔ¡';
 
             tr.innerHTML = `
                 <td><input type="text" class="form-control row-article" value="${article}"></td>
@@ -404,7 +404,7 @@
                 if (article || desc || sku) dataList.push({ article, desc, sku, qty, note });
             });
 
-            if (dataList.length === 0) return alert('��سҡ�͡�������Թ������ҧ���� 1 ��¡��');
+            if (dataList.length === 0) return alert('¡ÃØ³Ò¡ÃÍ¡¢éÍÁÙÅÊÔ¹¤éÒÍÂèÒ§¹éÍÂ 1 ÃÒÂ¡ÒÃ');
 
             const action = type === 'IN' ? 'saveIncoming' : 'saveOutgoing';
             const res = await callBackend(action, { items: dataList, user: currentUser });
@@ -438,14 +438,14 @@
                     `;
                 });
             } else {
-                stockTbody.innerHTML = '<tr><td colspan="6" style="text-align:center;">������Թ����Թ�������</td></tr>';
+                stockTbody.innerHTML = '<tr><td colspan="6" style="text-align:center;">äÁèÁÕÊÔ¹¤éÒà¡Ô¹¤§àËÅ×Í</td></tr>';
             }
 
             const histTbody = document.getElementById('tbodyHistory');
             histTbody.innerHTML = '';
             if (data.history && data.history.length > 0) {
                 data.history.forEach(h => {
-                    const badge = h.type === '�Ѻ���' ? '<span class="badge badge-in">�Ѻ���</span>' : '<span class="badge badge-out">�Ѵ�͡</span>';
+                    const badge = h.type === 'ÃÑºà¢éÒ' ? '<span class="badge badge-in">ÃÑºà¢éÒ</span>' : '<span class="badge badge-out">µÑ´ÍÍ¡</span>';
                     histTbody.innerHTML += `
                         <tr>
                             <td>${badge}</td>
@@ -461,7 +461,7 @@
                     `;
                 });
             } else {
-                histTbody.innerHTML = '<tr><td colspan="9" style="text-align:center;">�ѧ����ջ���ѵ���¡��</td></tr>';
+                histTbody.innerHTML = '<tr><td colspan="9" style="text-align:center;">ÂÑ§äÁèÁÕ»ÃÐÇÑµÔÃÒÂ¡ÒÃ</td></tr>';
             }
         }
 
